@@ -6,7 +6,6 @@ build-amd64-debian-buster:
   stage: build
   image: debian:buster
   script:
-    - apt-get update && apt-get install -y curl gnupg
     - ./gitlab-build.sh
     - mkdir -p built-packages/amd64/debian_buster/
     - mv ../*.deb built-packages/amd64/debian_buster/
@@ -31,8 +30,6 @@ build-armhf-debian-buster:
   stage: build
   image: multiarch/debian-debootstrap:armhf-buster
   script:
-    - apt-get update && apt-get install -y curl gnupg
-    - /usr/bin/c_rehash
     - ./gitlab-build.sh
     - mkdir -p built-packages/armhf/debian_buster/
     - mv ../*.deb built-packages/armhf/debian_buster/
@@ -57,7 +54,6 @@ build-amd64-ubuntu-bionic:
   stage: build
   image: ubuntu:bionic
   script:
-    - apt-get update && apt-get install -y curl gnupg
     - ./gitlab-build.sh
     - mkdir -p built-packages/amd64/ubuntu_bionic/
     - mv ../*.deb built-packages/amd64/ubuntu_bionic/
