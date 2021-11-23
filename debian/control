@@ -3,7 +3,7 @@ Section: python
 Priority: optional
 Maintainer: Debian Python Team <team+python@tracker.debian.org>
 Uploaders: Michael R. Crusoe <crusoe@debian.org>
-Build-Depends: debhelper-compat (= 13),
+Build-Depends: debhelper (>= 11),
                dh-python,
                cython3,
                python3-all-dev,
