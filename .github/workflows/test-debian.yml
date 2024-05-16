@@ -19,22 +19,16 @@ jobs:
             release: "bullseye"
             arch: "amd64"
           - distro: "ubuntu"
-            release: "bionic"
-            arch: "amd64"
-          - distro: "ubuntu"
             release: "focal"
             arch: "amd64"
           - distro: "ubuntu"
-            release: "hirsute"
-            arch: "amd64"
-          - distro: "ubuntu"
-            release: "impish"
+            release: "jammy"
             arch: "amd64"
     container:
       image: ${{ matrix.distro }}:${{ matrix.release }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Install dependencies
         run: |
           apt-get update
@@ -73,14 +67,6 @@ jobs:
             image: "bullseye"
             arch: "aarch64"
           - distro: "ubuntu"
-            release: "bionic"
-            image: "ubuntu18.04"
-            arch: "armv7"
-          - distro: "ubuntu"
-            release: "bionic"
-            image: "ubuntu18.04"
-            arch: "aarch64"
-          - distro: "ubuntu"
             release: "focal"
             image: "ubuntu20.04"
             arch: "armv7"
@@ -106,8 +92,8 @@ jobs:
             arch: "aarch64"
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
-      - uses: uraimo/run-on-arch-action@v2.1.1
+        uses: actions/checkout@v4
+      - uses: uraimo/run-on-arch-action@v2.7.2
         name: Build artifact
         id: build
         with:
